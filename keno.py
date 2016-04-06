@@ -22,7 +22,7 @@ json_string = f.read()
 parsed_json = json.loads(json_string)
 
 #get the min and max game and subtract them
-#so we can get total number of games so far to set the counter with
+#so we can get total number of games so far
 min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
 counter = max_game - min_game
