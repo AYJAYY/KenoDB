@@ -1,5 +1,5 @@
 # Keno Data Logging - Full Data
-# KDL V1.3
+# KDL V1.4
 # abullock@gltech.org
 # Last Edit Date: 4/6/16
 
@@ -26,14 +26,6 @@ parsed_json = json.loads(json_string)
 min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
 counter = max_game - min_game
-
-##check if it's sunday due to the fewer amount of games
-#if counter_date == 0:
-    ##set number of games based on the day(counter) 226 games on Sunday
-    #counter = 228
-#else:
-    ##set number of games based on the day(counter) 300 game every other day
-    #counter = 302
 
 #program loop
 while counter > 0:
