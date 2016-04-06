@@ -1,4 +1,4 @@
-#  Massachusetts KenoDB Logger
+#  Massachusetts Keno Numbers Logger
 
 **Requirements:**
 Python 2.*
