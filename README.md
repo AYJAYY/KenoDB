@@ -1,6 +1,6 @@
 #  Massachusetts KenoDB Logger
 
-**Requirements**
+**Requirements:**
 Python 2.*
 
 This program is setup so you can easily track keno numbers nightly. 
