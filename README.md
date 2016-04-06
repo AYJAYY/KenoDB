@@ -3,7 +3,7 @@
 **Requirements:**
 Python 2.*
 
-This program is setup so you can easily track keno numbers. It outputs two files, a full log of the days numbers in multiple formats as well as other draw info, as well as a list of the numbers drawn for the day in a single row to do pivot table analysis on the hot/coldness of numbers.
+This program is setup so you can easily track keno numbers. It outputs two files, a full log of the days numbers in multiple formats and other draw info, as well as a list of the numbers drawn for the day in a single row to do pivot table analysis on the hot/coldness of numbers.
 
 **_You must run this program nightly AFTER 1:05 AM EST. I reccomend using 1:20AM._**
 
