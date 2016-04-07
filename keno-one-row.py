@@ -8,7 +8,6 @@ import json
 import time
 
 
-
 def write_file(file_name, write_mode, file_text):
     text_file = open(file_name, write_mode)
     text_file.write(file_text)
@@ -55,5 +54,5 @@ while counter > 0:
 
     #go down a game
     counter = counter - 1
-    #wait for a bit to not hit the keno servers too many times
+    #wait for a bit to hit the keno servers less often
     time.sleep(1)

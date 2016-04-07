@@ -72,5 +72,5 @@ while counter > 0:
 
     #go down a game
     counter = counter - 1
-    #wait for a bit to not hit the keno servers too many times
+    #wait for a bit to hit the keno servers less often
     time.sleep(1)
