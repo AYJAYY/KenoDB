@@ -45,7 +45,7 @@ while counter > 0:
         error_date = time.strftime("%Y-%m-%d")
         error_text =  str(e) + "," + "Number of Games Error" + "," + error_date + "\n"
         write_file(logfile, "a+", error_text)
-        print "An error has occured. Too Few Games Played So Far. Currently at: " + str(counter)
+        print "Too Few Games Played So Far. Currently at: " + str(counter)
         counter = counter - 1
         continue
 
