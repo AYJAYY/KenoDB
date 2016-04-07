@@ -21,20 +21,20 @@ json_string = f.read()
 #parse the json file
 parsed_json = json.loads(json_string)
 #get the min and max game and subtract them
-#so we can get total number of games so far
+#so we can get total number of games to iterate over
 min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
-counter = max_game - min_game
+games = max_game - min_game
 
 #program loop
-while counter > 0:
+while games > 0:
     #get info from "draws" section in json file + Create error log
     try:
-        orgOrder = parsed_json['draws'][counter]['winning_num_org']
-        sortedOrder = parsed_json['draws'][counter]['winning_num']
-        multiplier = parsed_json['draws'][counter]['bonus']
-        multi_value = parsed_json['draws'][counter]['bonus_value']
-        draw = parsed_json['draws'][counter]['draw_id']
+        orgOrder = parsed_json['draws'][games]['winning_num_org']
+        sortedOrder = parsed_json['draws'][games]['winning_num']
+        multiplier = parsed_json['draws'][games]['bonus']
+        multi_value = parsed_json['draws'][games]['bonus_value']
+        draw = parsed_json['draws'][games]['draw_id']
         #split on dashes 19 times to split up the 20 numbers into csv format
         orgOrder_split = orgOrder.split('-', 19)
         #join the 20 numbers with commas to accomodate the csv
@@ -45,8 +45,8 @@ while counter > 0:
         error_date = time.strftime("%Y-%m-%d")
         error_text =  str(e) + "," + "Number of Games Error" + "," + error_date + "\n"
         write_file(logfile, "a+", error_text)
-        print "Too Few Games Played So Far. Currently at: " + str(counter)
-        counter = counter - 1
+        print "Too Few Games Played So Far. Currently at: " + str(games)
+        games = games - 1
         continue
 
     #A way to string together the data using my "write file" function, this
@@ -75,7 +75,6 @@ while counter > 0:
         print "An error has occured while writing to the file. Check the log in KenoFiles/ERRORLOG.csv"
         break
 
-    #go down a game
-    counter = counter - 1
+    games = games - 1
     #wait for a bit to limit amount of hits to the MA-KENO servers
     time.sleep(1)

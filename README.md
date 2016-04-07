@@ -1,5 +1,5 @@
 #  Massachusetts Keno Numbers Logger
-#### QuickKeno v1.1
+#### QuickKeno v1.4
 
 **Requirements:**
 Python 2.*
