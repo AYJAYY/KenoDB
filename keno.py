@@ -42,7 +42,7 @@ while games > 0:
         orgOrder_column = "\n".join(orgOrder_split)
     except Exception as e:
         logfile = "KenoFiles/ERRORLOG.csv"
-        error_date = time.strftime("%Y-%m-%d")
+        error_date = time.strftime("%Y-%m-%d-%I")
         error_text =  str(e) + "," + "Number of Games Error" + "," + error_date + "\n"
         write_file(logfile, "a+", error_text)
         print "Too Few Games Played So Far. Currently at: " + str(games)
@@ -69,7 +69,7 @@ while games > 0:
         write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
     except Exception as eW:
         logfile_eW = "KenoFiles/ERRORLOG.csv"
-        error_date_eW = time.strftime("%Y-%m-%d")
+        error_date_eW = time.strftime("%Y-%m-%d-%I")
         error_text_eW =  str(eW) + "," + "File Write Error" + "," + error_date_eW + "\n"
         write_file(logfile_eW, "a+", error_text_eW)
         print "An error has occured while writing to the file. Check the log in KenoFiles/ERRORLOG.csv"
@@ -77,4 +77,4 @@ while games > 0:
 
     games = games - 1
     #wait for a bit to limit amount of hits to the MA-KENO servers
-    time.sleep(1)
+    time.sleep(0.5)
