@@ -1,6 +1,6 @@
 # Keno Data Logging - Full Data
 # KDL v1.4
-# abullock@gltech.org
+# AYJAY@programmer.net
 # Last Edit Date: 4/7/16
 
 import urllib2
