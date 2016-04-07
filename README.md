@@ -10,4 +10,6 @@ This program is setup so you can easily track Keno numbers. It outputs two files
 
 Included is an Access database file with a table that has the correct header titles and rows created to accept the data from the program.
 
-*Windows Users Note:* Using the task scheduler you can use the nightly.bat file to create a nightly task. Just edit the nightly.bat file to fit your file locations / Windows Username.
+*Windows Users Note:* Using the task scheduler you can use the nightly.bat file to create a nightly task. Just edit the nightly.bat file to fit your file locations / Windows Username. Then you can add a nightly task to run the nightly.bat file. For more information on scheduling a task click the link below.
+
+[_Microsoft Schedule a Task Guide_](https://technet.microsoft.com/en-us/library/cc748993.aspx)
