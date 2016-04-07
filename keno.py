@@ -59,7 +59,7 @@ while games > 0:
     try:
         #format today's date for the filename
         date = time.strftime("%Y-%m-%d")
-        #set the filename
+        #set the daily filename
         kenodbfile = "KenoFiles/Daily/kenodb" + str(date) + ".csv"
         #write a new daily file
         write_file(kenodbfile, "a+", long_text)
