@@ -1,7 +1,7 @@
 # Keno Data Logging - ONE ROW - For Analysis / "Count Of" Pivot Table
 # KDL v1.1
 # abullock@gltech.org
-# Last Edit Date: 4/6/16
+# Last Edit Date: 4/7/16
 
 import urllib2
 import json
