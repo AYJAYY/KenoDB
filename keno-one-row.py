@@ -1,5 +1,5 @@
 # Keno Data Logging - ONE ROW - For Analysis / "Count Of" Pivot Table
-# KDL V1.1
+# KDL v1.1
 # abullock@gltech.org
 # Last Edit Date: 4/6/16
 

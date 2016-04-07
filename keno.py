@@ -1,5 +1,5 @@
 # Keno Data Logging - Full Data
-# KDL V1.4
+# KDL v1.4
 # abullock@gltech.org
 # Last Edit Date: 4/6/16
 
