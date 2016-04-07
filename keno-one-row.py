@@ -21,8 +21,8 @@ json_string = f.read()
 #parse the json file
 parsed_json = json.loads(json_string)
 
-
-#get the min and max game and subtract them so we can get total number of games so far
+#get the min and max game and subtract them
+#so we can get total number of games so far
 min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
 counter = max_game - min_game
@@ -45,7 +45,7 @@ while counter > 0:
         error_date = time.strftime("%Y-%m-%d")
         error_text =  str(e) + "," + "Number of Games Error" + "," + error_date + "\n"
         write_file(logfile, "a+", error_text)
-        print "An error has occured. Too Few Games Played So Far. Currently at: " + str(counter)
+        print "Too Few Games Played So Far. Currently at: " + str(counter)
         counter = counter - 1
         continue
 
