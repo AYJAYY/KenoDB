@@ -6,7 +6,7 @@
 import urllib2
 import json
 import time
-import datetime
+
 
 
 def write_file(file_name, write_mode, file_text):
@@ -50,12 +50,7 @@ while counter > 0:
         counter = counter - 1
         continue
 
-    #A way to string together the data using my "write file" function, this
-    #also turns everything into a string format so I can concatenate them.
-    long_text = str(orgOrder_join + "," + orgOrder + "," + sortedOrder + "," + multiplier + "," + multi_value + "," + draw) + "\n"
-
     single_row = str(orgOrder_join + "\n")
-
     write_file("KenoFiles/kenodbfull-1row.csv", "a+", single_row)
 
     #go down a game
