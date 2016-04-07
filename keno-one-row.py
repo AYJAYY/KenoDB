@@ -20,7 +20,6 @@ f = urllib2.urlopen("http://www.masslottery.com/data/json/search/dailygames/toda
 json_string = f.read()
 #parse the json file
 parsed_json = json.loads(json_string)
-
 #get the min and max game and subtract them
 #so we can get total number of games so far
 min_game = int(parsed_json['min'])
