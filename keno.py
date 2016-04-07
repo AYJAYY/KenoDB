@@ -39,6 +39,7 @@ while counter > 0:
         orgOrder_split = orgOrder.split('-', 19)
         #join the 20 numbers with commas to accomodate the csv
         orgOrder_join = ",".join(orgOrder_split)
+        orgOrder_column = "\n".join(orgOrder_split)
     except Exception as e:
         logfile = "KenoFiles/ERRORLOG.csv"
         error_date = time.strftime("%Y-%m-%d")
@@ -51,7 +52,10 @@ while counter > 0:
     #A way to string together the data using my "write file" function, this
     #also turns everything into a string format so I can concatenate them.
     long_text = str(orgOrder_join + "," + orgOrder + "," + sortedOrder + "," + multiplier + "," + multi_value + "," + draw) + "\n"
+    #put the numbers in a single row for alternate file
+    single_row = str(orgOrder_column + "\n")
 
+    #write out to the files individually
     try:
         #format today's date for the filename
         date = time.strftime("%Y-%m-%d")
@@ -61,6 +65,8 @@ while counter > 0:
         write_file(kenodbfile, "a+", long_text)
         #append to the master file
         write_file("KenoFiles/kenodbfull.csv", "a+", long_text)
+        #append to the single column file
+        write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
     except Exception as eW:
         logfile_eW = "KenoFiles/ERRORLOG.csv"
         error_date_eW = time.strftime("%Y-%m-%d")
@@ -71,5 +77,5 @@ while counter > 0:
 
     #go down a game
     counter = counter - 1
-    #wait for a bit to hit the keno servers less often
+    #wait for a bit to limit amount of hits to the MA-KENO servers
     time.sleep(1)
