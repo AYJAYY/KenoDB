@@ -1,12 +1,1 @@
-C:\Python27\python.exe C:\Users\YOURUSERNAMEHERE\Desktop\KenoDB\keno.py
-
-
-
-
-
-
-
-
-
-
-
+C:\Python27\python.exe C:\Users\abullock\Desktop\KenoDB\keno.py
