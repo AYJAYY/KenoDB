@@ -67,6 +67,8 @@ while games > 0:
         write_file("KenoFiles/kenodbfull.csv", "a+", long_text)
         #append to the single column file
         write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
+        #incase the user is running on demand, give success messages
+        print "Succesfully logged game #" + draw
     except Exception as eW:
         logfile_eW = "KenoFiles/LOG.csv"
         error_date_eW = time.strftime("%Y-%m-%d-%I")
@@ -77,7 +79,7 @@ while games > 0:
 
     games = games - 1
     #wait for a bit to limit amount of hits to the MA-KENO servers
-    time.sleep(0.5)
+    time.sleep(0.25)
 
 #success
 logfile_success = "KenoFiles/LOG.csv"
