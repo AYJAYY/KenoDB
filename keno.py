@@ -41,7 +41,7 @@ while games > 0:
         orgOrder_join = ",".join(orgOrder_split)
         orgOrder_column = "\n".join(orgOrder_split)
     except Exception as e:
-        logfile = "KenoFiles/ERRORLOG.csv"
+        logfile = "KenoFiles/LOG.csv"
         error_date = time.strftime("%Y-%m-%d-%I")
         error_text =  str(e) + "," + "Number of Games Error" + "," + error_date + "\n"
         write_file(logfile, "a+", error_text)
@@ -68,7 +68,7 @@ while games > 0:
         #append to the single column file
         write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
     except Exception as eW:
-        logfile_eW = "KenoFiles/ERRORLOG.csv"
+        logfile_eW = "KenoFiles/LOG.csv"
         error_date_eW = time.strftime("%Y-%m-%d-%I")
         error_text_eW =  str(eW) + "," + "File Write Error" + "," + error_date_eW + "\n"
         write_file(logfile_eW, "a+", error_text_eW)
@@ -78,3 +78,9 @@ while games > 0:
     games = games - 1
     #wait for a bit to limit amount of hits to the MA-KENO servers
     time.sleep(0.5)
+
+#success
+logfile_success = "KenoFiles/LOG.csv"
+success_date = time.strftime("%Y-%m-%d-%I")
+success_text = "KenoDB completed successfully" + "," + success_date + "\n"
+write_file(logfile_success, "a+", success_text)
