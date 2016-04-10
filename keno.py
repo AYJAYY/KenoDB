@@ -18,7 +18,7 @@ def write_file(file_name, write_mode, file_text):
 f = urllib2.urlopen("http://www.masslottery.com/data/json/search/dailygames/todays/15.json")
 #read from the json file
 json_string = f.read()
-#parse the json file
+#parse the json file so we can work with it
 parsed_json = json.loads(json_string)
 #get the min and max game and subtract them
 #so we can get total number of games to iterate over
@@ -35,7 +35,7 @@ while games > 0:
         multiplier = parsed_json['draws'][games]['bonus']
         multi_value = parsed_json['draws'][games]['bonus_value']
         draw = parsed_json['draws'][games]['draw_id']
-        #split on dashes 19 times to split up the 20 numbers into csv format
+        #split on dashes 19 times to split up the 20 numbers
         orgOrder_split = orgOrder.split('-', 19)
         #join the 20 numbers with commas to accomodate the csv
         orgOrder_join = ",".join(orgOrder_split)
@@ -49,17 +49,16 @@ while games > 0:
         games = games - 1
         continue
 
-    #A way to string together the data using my "write file" function, this
+    #a way to string together the data using my "write file" function, this
     #also turns everything into a string format so I can concatenate them.
     long_text = str(orgOrder_join + "," + orgOrder + "," + sortedOrder + "," + multiplier + "," + multi_value + "," + draw) + "\n"
-    #put the numbers in a single row for alternate file
+    #also put the numbers in a single row for alternate file
     single_row = str(orgOrder_column + "\n")
 
     #write out to the files individually
     try:
-        #format today's date for the filename
+        #format today's date for the filename and set it
         date = time.strftime("%Y-%m-%d")
-        #set the daily filename
         kenodbfile = "KenoFiles/Daily/kenodb" + str(date) + ".csv"
         #write a new daily file
         write_file(kenodbfile, "a+", long_text)
@@ -74,12 +73,13 @@ while games > 0:
         error_date_eW = time.strftime("%Y-%m-%d-%I")
         error_text_eW =  str(eW) + "," + "File Write Error" + "," + error_date_eW + "\n"
         write_file(logfile_eW, "a+", error_text_eW)
-        print "An error has occured while writing to the file. Check the log in KenoFiles/ERRORLOG.csv"
+        print "An error has occured while writing to the file. Check the log in KenoFiles/LOG.csv"
         break
 
     games = games - 1
     #wait for a bit to limit amount of hits to the MA-KENO servers
     time.sleep(0.25)
+    print "Sleeping...."
 
 #success
 logfile_success = "KenoFiles/LOG.csv"
