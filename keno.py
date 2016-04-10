@@ -42,7 +42,7 @@ while games > 0:
         orgOrder_column = "\n".join(orgOrder_split)
     except Exception as e:
         logfile = "KenoFiles/LOG.csv"
-        error_date = time.strftime("%Y-%m-%d-%I")
+        error_date = time.strftime("%Y-%m-%d-%I:%M AM")
         error_text =  str(e) + "," + "Number of Games Error" + "," + error_date + "\n"
         write_file(logfile, "a+", error_text)
         print "Too Few Games Played So Far. Currently at: " + str(games)
