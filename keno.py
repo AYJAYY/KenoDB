@@ -70,7 +70,7 @@ while games > 0:
         print "Succesfully logged game #" + draw
     except Exception as eW:
         logfile_eW = "KenoFiles/LOG.csv"
-        error_date_eW = time.strftime("%Y-%m-%d-%I")
+        error_date_eW = time.strftime("%Y-%m-%d-%I:%M %p")
         error_text_eW =  str(eW) + "," + "File Write Error" + "," + error_date_eW + "\n"
         write_file(logfile_eW, "a+", error_text_eW)
         print "An error has occured while writing to the file. Check the log in KenoFiles/LOG.csv"
@@ -83,6 +83,6 @@ while games > 0:
 
 #success
 logfile_success = "KenoFiles/LOG.csv"
-success_date = time.strftime("%Y-%m-%d-%I")
+success_date = time.strftime("%Y-%m-%d-%I:%M %p")
 success_text = "KenoDB completed successfully" + "," + success_date + "\n"
 write_file(logfile_success, "a+", success_text)
