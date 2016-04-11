@@ -74,7 +74,7 @@ while games > 0:
         write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
         #incase the user is running on demand, give success messages & log them
         print "Succesfully logged game #" + draw
-        vlog_string = "Succesfully logged game #" + "," + draw
+        vlog_string = "Succesfully logged game" + "," + draw + "\n"
         sys_log = "KenoFiles/SYSLOG.csv"
         write_file(sys_log,"a+",vlog_string)
     except Exception as eW:
@@ -84,7 +84,7 @@ while games > 0:
         write_file(logfile_eW, "a+", error_text_eW)
         sys_log = "KenoFiles/SYSLOG.csv"
         write_file(sys_log,"a+",error_text_eW)
-        print "An error has occured while writing to the file. Check the log in KenoFiles/LOG.csv"
+        print "An error has occured while writing to one of the files. Check the log in /KenoFiles"
         break
 
     games = games - 1
@@ -95,5 +95,5 @@ while games > 0:
 #success
 logfile_success = "KenoFiles/LOG.csv"
 success_date = time.strftime("%Y-%m-%d-%I:%M %p")
-success_text = "KenoDB completed successfully" + "," + success_date + "," + min_game + "," + max_game + "\n"
+success_text = "KenoDB completed successfully" + "," + success_date + "," + str(min_game) + "," + str(max_game) + "\n"
 write_file(logfile_success, "a+", success_text)
