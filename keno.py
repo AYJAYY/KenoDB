@@ -3,10 +3,9 @@
 # AYJAY@programmer.net
 # Last Edit Date: 4/10/16
 
-import urllib2,json,time
+import urllib2
 import json
 import time
-
 
 def write_file(file_name, write_mode, file_text):
     text_file = open(file_name, write_mode)
