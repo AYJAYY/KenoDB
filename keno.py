@@ -1,4 +1,4 @@
-# Keno Data Logging - Full Data
+# Keno Data Logging - QuickKeno
 # KDL v1.5
 # AYJAY@programmer.net
 # Last Edit Date: 4/11/16
@@ -6,6 +6,7 @@
 import urllib2
 import json
 import time
+
 
 def write_file(file_name, write_mode, file_text):
     text_file = open(file_name, write_mode)
