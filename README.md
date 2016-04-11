@@ -1,5 +1,5 @@
 #  Massachusetts Keno Numbers Logger
-#### QuickKeno v1.4
+#### QuickKeno
 
 ![Python 2.*](https://img.shields.io/badge/python-2.7-blue.svg) ![Version 1.5](https://img.shields.io/badge/version-1.5-brightgreen.svg)
 
