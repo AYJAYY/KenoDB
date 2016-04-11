@@ -84,5 +84,5 @@ while games > 0:
 #success
 logfile_success = "KenoFiles/LOG.csv"
 success_date = time.strftime("%Y-%m-%d-%I:%M %p")
-success_text = "KenoDB completed successfully" + "," + success_date + "\n"
+success_text = "KenoDB completed successfully" + "," + success_date + "," + min_game + "," + max_game + "\n"
 write_file(logfile_success, "a+", success_text)
