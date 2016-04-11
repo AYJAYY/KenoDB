@@ -13,7 +13,6 @@ Included is an Access database file with a table that has the correct header tit
 
 [_Microsoft Schedule a Task Guide_](https://technet.microsoft.com/en-us/library/cc748993.aspx)
 
-
 [![Contact AYJAY](https://img.shields.io/badge/contact-AYJAY-orange.svg)](mailto:ayjay@programmer.net)
 
 
