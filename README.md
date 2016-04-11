@@ -2,7 +2,7 @@
 #### QuickKeno v1.4
 
 **Requirements:**
-Python 2.*
+![Python 2.*](https://img.shields.io/badge/python-2.7-blue.svg)
 
 **_~In order to track the whole day's data you must run this nightly AFTER 1:05 AM EST. Reccomended: 1:20AM EST~_**
 
@@ -14,5 +14,3 @@ Included is an Access database file with a table that has the correct header tit
 
 [_Microsoft Schedule a Task Guide_](https://technet.microsoft.com/en-us/library/cc748993.aspx)
 
-
-version | 1.2.3
