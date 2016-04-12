@@ -26,7 +26,7 @@ min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
 games = max_game - min_game
 #log the min and max game for the day
-min_max = "Min Game: " + str(min_game) + "," + "Max Game: " + str(max_game)
+min_max = "Min Game: " + str(min_game) + "," + "Max Game: " + str(max_game) + "\n"
 sys_log = "KenoFiles/SYSLOG.csv"
 write_file(sys_log,"a+",min_max)
 
@@ -34,28 +34,16 @@ write_file(sys_log,"a+",min_max)
 #program loop
 while games > 0:
     #get info from "draws" section in json file + Create error log
-    try:
-        orgOrder = parsed_json['draws'][games]['winning_num_org']
-        sortedOrder = parsed_json['draws'][games]['winning_num']
-        multiplier = parsed_json['draws'][games]['bonus']
-        multi_int = parsed_json['draws'][games]['bonus_value']
-        draw = parsed_json['draws'][games]['draw_id']
-        #split on dashes 19 times to split up the 20 numbers
-        orgOrder_split = orgOrder.split('-', 19)
-        #join the 20 numbers with commas to accomodate the csv
-        orgOrder_join = ",".join(orgOrder_split)
-        orgOrder_column = "\n".join(orgOrder_split)
-    except Exception as e:
-        logfile = "KenoFiles/LOG.csv"
-        error_date = time.strftime("%Y-%m-%d-%I:%M %p")
-        error_text =  str(e) + "," + "Number of Games Error" + "," + error_date + "\n"
-        write_file(logfile, "a+", error_text)
-        sys_log = "KenoFiles/SYSLOG.csv"
-        write_file(sys_log,"a+",error_text)
-        print "Too Few Games Played So Far. Currently at: " + str(games)
-        games = games - 1
-        continue
-
+    orgOrder = parsed_json['draws'][games]['winning_num_org']
+    sortedOrder = parsed_json['draws'][games]['winning_num']
+    multiplier = parsed_json['draws'][games]['bonus']
+    multi_int = parsed_json['draws'][games]['bonus_value']
+    draw = parsed_json['draws'][games]['draw_id']
+    #split on dashes 19 times to split up the 20 numbers
+    orgOrder_split = orgOrder.split('-', 19)
+    #join the 20 numbers with commas to accomodate the csv
+    orgOrder_join = ",".join(orgOrder_split)
+    orgOrder_column = "\n".join(orgOrder_split)
     #a way to string together the data using my "write file" function, this
     #also turns everything into a string format so I can concatenate them.
     long_text = str(orgOrder_join + "," + orgOrder + "," + sortedOrder + "," + multiplier + "," + multi_int + "," + draw) + "\n"
@@ -84,7 +72,10 @@ while games > 0:
         error_text_eW =  str(eW) + "," + "File Write Error" + "," + error_date_eW + "\n"
         write_file(logfile_eW, "a+", error_text_eW)
         sys_log = "KenoFiles/SYSLOG.csv"
+        sys_log_html = "KenoFiles/LOG.html"
+        html_text = """<button type="button" class="btn btn-danger">An error has occured while writing to one of the files. Check the log in /KenoFiles</button><br \>""" + "\n"
         write_file(sys_log,"a+",error_text_eW)
+        write_file(sys_log_html,"a+",html_text)
         print "An error has occured while writing to one of the files. Check the log in /KenoFiles"
         break
 
@@ -95,6 +86,11 @@ while games > 0:
 
 #success
 logfile_success = "KenoFiles/LOG.csv"
+sys_log_html = "KenoFiles/LOG.html"
 success_date = time.strftime("%Y-%m-%d-%I:%M %p")
 success_text = "KenoDB completed successfully" + "," + success_date + "," + str(min_game) + "," + str(max_game) + "\n"
+games = max_game - min_game
+html_text = """<button type="button" class="btn btn-success">KenoDB completed successfully""" + " | Date: " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Number Of Games: " + str(games) + "</button><br \>" + "\n"
 write_file(logfile_success, "a+", success_text)
+write_file(sys_log_html,"a+",html_text)
+print "KenoDB completed successfully"
