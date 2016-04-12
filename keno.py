@@ -1,7 +1,7 @@
 # Keno Data Logging - QuickKeno
 # KDL v1.5
 # AYJAY@programmer.net
-# Last Edit Date: 4/11/16
+# Last Edit Date: 4/12/16
 
 import urllib2
 import json
