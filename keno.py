@@ -26,7 +26,7 @@ min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
 games = max_game - min_game
 #log the min and max game for the day
-min_max = str(min_game) + str(max_game)
+min_max = "Min Game: " + str(min_game) + "," + "Max Game: " + str(max_game)
 sys_log = "KenoFiles/SYSLOG.csv"
 write_file(sys_log,"a+",min_max)
 
