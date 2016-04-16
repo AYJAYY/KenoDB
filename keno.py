@@ -1,7 +1,7 @@
 # Keno Data Logging - QuickKeno
 # KDL v1.5
 # AYJAY@programmer.net
-# Last Edit Date: 4/12/16
+# Last Edit Date: 4/15/16
 
 import urllib2
 import json
@@ -25,11 +25,6 @@ parsed_json = json.loads(json_string)
 min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
 games = max_game - min_game
-#log the min and max game for the day
-min_max = "Min Game: " + str(min_game) + "," + "Max Game: " + str(max_game) + "\n"
-sys_log = "KenoFiles/SYSLOG.csv"
-write_file(sys_log,"a+",min_max)
-
 
 #program loop
 while games > 0:
@@ -63,34 +58,29 @@ while games > 0:
         write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
         #incase the user is running on demand, give success messages & log them
         print "Succesfully logged game #" + draw
-        vlog_string = "Succesfully logged game" + "," + draw + "\n"
-        sys_log = "KenoFiles/SYSLOG.csv"
+        vlog_string = "<font size='1px'><strong>Succesfully logged game:</strong> " + draw + " <strong>|</strong> </font>" + "\n"
+        sys_log = "KenoFiles/SYSLOG.html"
         write_file(sys_log,"a+",vlog_string)
     except Exception as eW:
-        logfile_eW = "KenoFiles/LOG.csv"
         error_date_eW = time.strftime("%Y-%m-%d-%I:%M %p")
-        error_text_eW =  str(eW) + "," + "File Write Error" + "," + error_date_eW + "\n"
-        write_file(logfile_eW, "a+", error_text_eW)
-        sys_log = "KenoFiles/SYSLOG.csv"
-        sys_log_html = "KenoFiles/LOG.html"
+        error_text_eW =  str(eW) + " | " + "File Write Error" + " | " + error_date_eW + "<br \>" + "\n"
+        sys_log = "KenoFiles/SYSLOG.html"
+        log_html = "KenoFiles/LOG.html"
         html_text = """<button type="button" class="btn btn-danger">An error has occured while writing to one of the files. Check the log in /KenoFiles</button><br \>""" + "\n"
         write_file(sys_log,"a+",error_text_eW)
-        write_file(sys_log_html,"a+",html_text)
-        print "An error has occured while writing to one of the files. Check the log in /KenoFiles"
+        write_file(log_html,"a+",html_text)
+        print "An error has occured while writing to one of the files. Check the logs in /KenoFiles"
         break
 
     games = games - 1
-    #wait for a bit to limit amount of hits to the MA-KENO servers
-    time.sleep(0.25)
-    print "Sleeping...."
 
 #success
-logfile_success = "KenoFiles/LOG.csv"
-sys_log_html = "KenoFiles/LOG.html"
-success_date = time.strftime("%Y-%m-%d-%I:%M %p")
-success_text = "KenoDB completed successfully" + "," + success_date + "," + str(min_game) + "," + str(max_game) + "\n"
 games = max_game - min_game
+log_html = "KenoFiles/LOG.html"
+sys_log = "KenoFiles/SYSLOG.html"
+success_date = time.strftime("%Y-%m-%d-%I:%M %p")
+success_text = "<center><div class='bg-success' style='border:1px solid green;'><strong><font color='green'> KenoDB completed successfully" + " | " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Total Games: " + str(games) + "</font></strong></div></center><br \>" + "\n"
 html_text = """<button type="button" class="btn btn-success">KenoDB completed successfully""" + " | Date: " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Number Of Games: " + str(games) + "</button><br \>" + "\n"
-write_file(logfile_success, "a+", success_text)
-write_file(sys_log_html,"a+",html_text)
+write_file(log_html,"a+",html_text)
+write_file(sys_log,"a+",success_text)
 print "KenoDB completed successfully"
