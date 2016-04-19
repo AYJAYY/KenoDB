@@ -74,7 +74,7 @@ while games > 0:
 
     games = games - 1
 
-#success
+#success - write to logs and print out incase this is an ondemand run
 games = max_game - min_game
 log_html = "KenoFiles/LOG.html"
 sys_log = "KenoFiles/SYSLOG.html"
