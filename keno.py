@@ -1,12 +1,11 @@
 # Keno Data Logging - QuickKeno
-# KDL v1.5
+# KDL v1.5.1
 # AYJAY@programmer.net
-# Last Edit Date: 4/15/16
+# Last Edit Date: 4/20/16
 
 import urllib2
 import json
 import time
-
 
 def write_file(file_name, write_mode, file_text):
     text_file = open(file_name, write_mode)
@@ -20,15 +19,15 @@ ma_keno_json = urllib2.urlopen("http://www.masslottery.com/data/json/search/dail
 json_string = ma_keno_json.read()
 #parse the json file so we can work with it
 parsed_json = json.loads(json_string)
-#get the min and max game and subtract them
-#so we can get total number of games to iterate over
+#get the min and max game and subtract them...
+#...so we can get total number of games to iterate over
 min_game = int(parsed_json['min'])
 max_game = int(parsed_json['max'])
 games = max_game - min_game
 
-#program loop
+#script loop
 while games > 0:
-    #get info from "draws" section in json file + Create error log
+    #get info from "draws" section in json file + create error log
     orgOrder = parsed_json['draws'][games]['winning_num_org']
     sortedOrder = parsed_json['draws'][games]['winning_num']
     multiplier = parsed_json['draws'][games]['bonus']
@@ -56,7 +55,7 @@ while games > 0:
         write_file("KenoFiles/kenodbfull.csv", "a+", long_text)
         #append to the single column file
         write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
-        #incase the user is running on demand, give success messages & log them
+        #in case the user is running on demand, give success messages & log them
         print "Succesfully logged game #" + draw
         vlog_string = "<font size='1px'><strong>Succesfully logged game:</strong> " + draw + " <strong>|</strong> </font>" + "\n"
         sys_log = "KenoFiles/SYSLOG.html"
@@ -74,13 +73,15 @@ while games > 0:
 
     games = games - 1
 
-#success - write to logs and print out incase this is an ondemand run
+#success - write to logs and print out in case this is an on demand run
 games = max_game - min_game
+success_date = time.strftime("%Y-%m-%d-%I:%M %p")
 log_html = "KenoFiles/LOG.html"
 sys_log = "KenoFiles/SYSLOG.html"
-success_date = time.strftime("%Y-%m-%d-%I:%M %p")
-success_text = "<center><div class='bg-success' style='border:1px solid green;'><strong><font color='green'> KenoDB completed successfully" + " | " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Total Games: " + str(games) + "</font></strong></div></center><br \>" + "\n"
-html_text = """<button type="button" class="btn btn-success">KenoDB completed successfully""" + " | Date: " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Number Of Games: " + str(games) + "</button><br \>" + "\n"
-write_file(log_html,"a+",html_text)
-write_file(sys_log,"a+",success_text)
+success_html = "<center><div class='bg-success' style='border:1px solid green;'><strong><font color='green'> KenoDB completed successfully" + " | " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Total Games: " + str(games) + "</font></strong></div></center><br \>" + "\n"
+sys_success_html = """<button type="button" class="btn btn-success">KenoDB completed successfully""" + " | Date: " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Number Of Games: " + str(games) + "</button><br \>" + "\n"
+write_file(log_html,"a+",sys_success_html)
+write_file(sys_log,"a+",success_html)
 print "KenoDB completed successfully"
+
+
