@@ -1,6 +1,6 @@
 # Keno Data Logging - QuickKeno
 # KDL v1.5.1
-# AYJAY@programmer.net
+# aj@ayjayy.com
 # Last Edit Date: 4/20/16
 
 import urllib2
