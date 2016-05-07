@@ -7,6 +7,7 @@ import urllib2
 import json
 import time
 
+
 def write_file(file_name, write_mode, file_text):
     text_file = open(file_name, write_mode)
     text_file.write(file_text)
