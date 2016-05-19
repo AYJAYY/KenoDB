@@ -9,6 +9,9 @@ This script outputs several files to the /KenoFiles directory, a full log of the
 
 Also included is an Access database file with a table that has the correct header titles and rows created to import the data from the kenodbfull.csv file.
 
+******NEW******
+The file "HOT.py" is an on-demand file that will calculate the hottest 5 numbers from the data collected from the main program.
+
 *Windows Users Note:* Using the task scheduler you can use the nightly.bat file to create a nightly task. Just edit the nightly.bat file to fit your file locations / Windows Username. Then you can add a nightly task to run the nightly.bat file. For more information on scheduling a task click the link below.
 
 [_Microsoft Schedule a Task Guide_](https://technet.microsoft.com/en-us/library/cc748993.aspx)
