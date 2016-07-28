@@ -3,7 +3,7 @@
 
 [![Python 2.*](https://img.shields.io/badge/python-2.7-blue.svg)](http://python.org) [![Version 1.5](https://img.shields.io/badge/version-1.5.1-brightgreen.svg)](https://github.com/AYJAYY/KenoDB) [![Updated FREQUENTLY](https://img.shields.io/badge/Live%20Project-Beta-red.svg)](#)
 
-**_~In order to track the whole day's data you must run this nightly AFTER 1:05 AM EST. Reccomended: 1:20AM EST~_**
+**_~In order to track the whole day's data you must run this nightly AT 1:05 AM EST.~_**
 
 This script outputs several files to the /KenoFiles directory, a full log of the day's numbers and other draw info, as well as a list of the numbers drawn for the day in a single column to do pivot table analysis on the hot/coldness of numbers. For troubleshooting it logs all successes and failures into two HTML log files.
 
