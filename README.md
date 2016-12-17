@@ -1,6 +1,8 @@
 #  Massachusetts Keno Numbers Logger
 #### QuickKeno - http://ayjayy.github.io/KenoDB/
 
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3656ccd98ee7440084d6784a3d807900)](https://www.codacy.com/app/ajbbb/KenoDB?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AYJAYY/KenoDB&amp;utm_campaign=badger)
 [![Python 2.*](https://img.shields.io/badge/python-2.7-blue.svg)](http://python.org) [![Version 1.5](https://img.shields.io/badge/version-1.5.1-brightgreen.svg)](https://github.com/AYJAYY/KenoDB) [![Updated FREQUENTLY](https://img.shields.io/badge/Live%20Project-Beta-red.svg)](#)
 
 **_~In order to track the whole day's data you must run this nightly AT 1:05 AM EST.~_**
