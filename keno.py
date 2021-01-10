@@ -1,9 +1,8 @@
 # Keno Data Logging - QuickKeno
-# KDL v1.5.1
-# aj@ayjayy.com
-# Last Edit Date: 4/20/16
+# KDL v1.5.2 - Python 3 Conversion
+# Last Edit Date: 1/9/2021
 
-import urllib2
+from urllib.request import urlopen
 import json
 import time
 
@@ -15,7 +14,7 @@ def write_file(file_name, write_mode, file_text):
 
 
 #get the keno json file
-ma_keno_json = urllib2.urlopen("http://www.masslottery.com/data/json/search/dailygames/todays/15.json")
+ma_keno_json = urlopen("http://www.masslottery.com/data/json/search/dailygames/todays/15.json")
 #read from the json file
 json_string = ma_keno_json.read()
 #parse the json file so we can work with it
@@ -57,7 +56,7 @@ while games > 0:
         #append to the single column file
         write_file("KenoFiles/kenodbfull-1column.csv", "a+", single_row)
         #in case the user is running on demand, give success messages & log them
-        print "Succesfully logged game #" + draw
+        print("Succesfully logged game #" + draw)
         vlog_string = "<font size='1px'><strong>Succesfully logged game:</strong> " + draw + " <strong>|</strong> </font>" + "\n"
         sys_log = "KenoFiles/SYSLOG.html"
         write_file(sys_log,"a+",vlog_string)
@@ -69,7 +68,7 @@ while games > 0:
         html_text = """<button type="button" class="btn btn-danger">An error has occured while writing to one of the files. Check the log in /KenoFiles</button><br \>""" + "\n"
         write_file(sys_log,"a+",error_text_eW)
         write_file(log_html,"a+",html_text)
-        print "An error has occured while writing to one of the files. Check the logs in /KenoFiles"
+        print("An error has occured while writing to one of the files. Check the logs in /KenoFiles")
         break
 
     games = games - 1
@@ -83,6 +82,6 @@ success_html = "<center><div class='bg-success' style='border:1px solid green;'>
 sys_success_html = """<button type="button" class="btn btn-success">KenoDB completed successfully""" + " | Date: " + success_date + " | Min Game: " + str(min_game) + " | Max Game: " + str(max_game) + " | Number Of Games: " + str(games) + "</button><br \>" + "\n"
 write_file(log_html,"a+",sys_success_html)
 write_file(sys_log,"a+",success_html)
-print "KenoDB completed successfully"
+print("KenoDB completed successfully")
 
 
