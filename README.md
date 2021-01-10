@@ -18,7 +18,7 @@ The file "HOT.py" is an on-demand file that will calculate the hottest 5 numbers
 
 [_Microsoft Schedule a Task Guide_](https://technet.microsoft.com/en-us/library/cc748993.aspx)
 
-[![Contact AYJAY](https://img.shields.io/badge/contact-AYJAY-orange.svg)](mailto:ayjay@programmer.net)
+[![Contact AYJAY](https://img.shields.io/badge/contact-AYJAY-orange.svg)](mailto:githubayjayy@hideaddress.net)
 
 
 
