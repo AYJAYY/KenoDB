@@ -2,6 +2,11 @@
 #### QuickKeno - http://ayjayy.github.io/KenoDB/
 
 
+# Note: This no longer works. They have completely changed their back end system. I reached out to see if they still provide json and they told me no.
+
+
+
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3656ccd98ee7440084d6784a3d807900)](https://www.codacy.com/app/ajbbb/KenoDB?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AYJAYY/KenoDB&amp;utm_campaign=badger)
 [![Python 3.*](https://img.shields.io/badge/python-3.*-blue.svg)](http://python.org) [![Version 1.5.2](https://img.shields.io/badge/version-1.5.2-brightgreen.svg)](https://github.com/AYJAYY/KenoDB) [![Updated FREQUENTLY](https://img.shields.io/badge/Live%20Project-Beta-red.svg)](#)
 
